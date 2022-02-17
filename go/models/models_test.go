@@ -1,4 +1,4 @@
-package main
+package models
 
 import (
 	"fmt"
@@ -79,7 +79,7 @@ func Test_Backstage_Passes(t *testing.T) {
 func printItems(name string, items []*Item) {
 	fmt.Printf("\n%v\n", name)
 	for i, item := range items {
-		fmt.Println(fmt.Sprintf("%v. s:%v q:%v", i, item.SellIn, item.Quality))
+		fmt.Println(fmt.Sprintf("%v. s:%v q:%v", i, item.sellIn, item.quality))
 	}
 }
 
@@ -97,7 +97,11 @@ func doUpdateQuality(t *testing.T, name string, expectedItems []*Item) {
 
 	printItems(name, items)
 
-	UpdateQuality(items)
+	for i := range items {
+		si := NewSpecifiedItem(items[i])
+		si.UpdateQuality()
+		items[i] = si.GetItem()
+	}
 
 	printItems(name, items)
 
