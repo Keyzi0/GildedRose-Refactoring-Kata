@@ -75,7 +75,6 @@ func Test_Backstage_Passes(t *testing.T) {
 	doUpdateQuality(t, name, updatedItems)
 }
 
-// =========================================================
 func printItems(name string, items []*Item) {
 	fmt.Printf("\n%v\n", name)
 	for i, item := range items {

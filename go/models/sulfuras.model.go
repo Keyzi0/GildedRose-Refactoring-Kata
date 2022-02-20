@@ -1,9 +1,11 @@
 package models
 
 type Sulfuras struct {
-	Name    string
-	SellIn  int
-	Quality int
+	*Item
+}
+
+func NewSulfuras(item *Item) *Sulfuras {
+	return &Sulfuras{item}
 }
 
 func (ab *Sulfuras) UpdateQuality() {
@@ -11,8 +13,8 @@ func (ab *Sulfuras) UpdateQuality() {
 
 func (ab *Sulfuras) GetItem() *Item {
 	return &Item{
-		name:    ab.Name,
-		sellIn:  ab.SellIn,
-		quality: ab.Quality,
+		name:    ab.name,
+		sellIn:  ab.sellIn,
+		quality: ab.quality,
 	}
 }

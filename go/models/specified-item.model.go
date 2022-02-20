@@ -12,28 +12,12 @@ func NewSpecifiedItem(item *Item) SpecifiedItemInterface {
 func getTypedItem(item *Item) SpecifiedItemInterface {
 	switch item.name {
 	case "Aged Brie":
-		return &AgedBrie{
-			Name:    item.name,
-			SellIn:  item.sellIn,
-			Quality: item.quality,
-		}
+		return NewAgedBrie(item)
 	case "Sulfuras, Hand of Ragnaros":
-		return &Sulfuras{
-			Name:    item.name,
-			SellIn:  item.sellIn,
-			Quality: item.quality,
-		}
+		return NewSulfuras(item)
 	case "Backstage passes to a TAFKAL80ETC concert":
-		return &BackstagePass{
-			Name:    item.name,
-			SellIn:  item.sellIn,
-			Quality: item.quality,
-		}
+		return NewBackstagePass(item)
 	default:
-		return &SimpleItem{
-			Name:    item.name,
-			SellIn:  item.sellIn,
-			Quality: item.quality,
-		}
+		return NewSimpleItem(item)
 	}
 }
