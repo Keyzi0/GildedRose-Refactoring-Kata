@@ -75,6 +75,23 @@ func Test_Backstage_Passes(t *testing.T) {
 	doUpdateQuality(t, name, updatedItems)
 }
 
+func Test_Conjured(t *testing.T) {
+	name := "Conjured "
+
+	var updatedItems = []*Item{
+		{name, -1, 0},
+		{name, 4, 3},
+		{name, -11, 6},
+		{name, 9, 8},
+		{name, 14, 13},
+		{name, -1, -5},
+		{name, -1, 45},
+		{name, -1, 47},
+	}
+
+	doUpdateQuality(t, name, updatedItems)
+}
+
 func printItems(name string, items []*Item) {
 	fmt.Printf("\n%v\n", name)
 	for i, item := range items {
